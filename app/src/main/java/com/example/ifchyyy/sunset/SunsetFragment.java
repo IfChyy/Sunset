@@ -116,7 +116,6 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
         sunsetSkyAnimator.setEvaluator(new ArgbEvaluator());
         //  sunsetSkyAnimator.start();
 
-
         //animate the sky to night color
         ObjectAnimator nightSkyAnimator = ObjectAnimator
                 .ofInt(skyView, "backgroundColor", sunsetSkyColor, nightSkyColor)

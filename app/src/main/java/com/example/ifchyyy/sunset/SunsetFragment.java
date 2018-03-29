@@ -15,7 +15,11 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 
 /**
- * Created by IfChyyy on 3/29/2018.
+ * Created by Ivo Georgiev(IfChyy)
+ * SunsetFragment is a class representing two rectangles(sky and sea)
+ * and two circles representing a sun and a sun reflection
+ * idea is to learn animation classes in adnroid
+ * while the sun goes up or down and the reflection to
  */
 
 public class SunsetFragment extends Fragment implements View.OnClickListener {
@@ -72,14 +76,11 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
 
                 startAnimation();
                 sunStartReflecetion();
-
-
                 isDone = true;
             } else {
 
                 reverseAnimation();
                 sunReversedAnimation();
-
                 isDone = false;
             }
         }
@@ -119,7 +120,7 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
         ObjectAnimator nightSkyAnimator = ObjectAnimator
                 .ofInt(skyView, "backgroundColor", sunsetSkyColor, nightSkyColor)
                 .setDuration(3000);
-
+        //ArgbEvaluetor makes a smoot transition between the colors chaning(else its super fast)
         nightSkyAnimator.setEvaluator(new ArgbEvaluator());
 
 
@@ -170,7 +171,7 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
         ObjectAnimator nightSkyAnimator = ObjectAnimator
                 .ofInt(skyView, "backgroundColor", nightSkyColor, sunsetSkyColor)
                 .setDuration(3000);
-
+        //ArgbEvaluetor makes a smoot transition between the colors chaning(else its super fast)
         nightSkyAnimator.setEvaluator(new ArgbEvaluator());
 
 
@@ -189,14 +190,16 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
 
     //start the animation of the reflection of the sun in the water
     private void sunStartReflecetion() {
+        //end positon of reflection sun
         float endPosition = sunViewReflected.getY() - seaView.getHeight();
-
+        //start pos of reflection sun
         float startPosition = sunViewReflected.getHeight();
-
+        //animator with chanlged start position CHALLENGE
         ObjectAnimator heightRefcAnimator = ObjectAnimator
                 .ofFloat(sunViewReflected, "y", sunViewReflected.getY(), endPosition)
                 .setDuration(4700);
-
+        //interpolator used because Animator class doesnt know exactly how to shift int/float values
+        //for smoot animation
         heightRefcAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
 
         waterReflectStart = new AnimatorSet();
@@ -207,14 +210,16 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
 
     //start the animation of the reflection of the sun in the water reversed
     private void sunReversedAnimation() {
+        //end position of reflection sun
         float endPosition = sunViewReflected.getY() - seaView.getHeight();
-
+        //start position of reflection sun
         float startpPosition = sunViewReflected.getHeight();
-
+        //animator class (instance) with changle end position CHALLENGE
         ObjectAnimator heightRefcAnimator = ObjectAnimator
                 .ofFloat(sunViewReflected, "y", sunViewReflected.getY(), startpPosition)
                 .setDuration(3000);
-
+        //interpolator used because Animator class doesnt know exactly how to shift int/float values
+        //for smoot animation
         heightRefcAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
 
         waterReflectReverse = new AnimatorSet();

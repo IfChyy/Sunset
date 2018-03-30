@@ -197,7 +197,7 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
         //animator with chanlged start position CHALLENGE
         ObjectAnimator heightRefcAnimator = ObjectAnimator
                 .ofFloat(sunViewReflected, "y", sunViewReflected.getY(), endPosition)
-                .setDuration(4700);
+                .setDuration(6000);
         //interpolator used because Animator class doesnt know exactly how to shift int/float values
         //for smoot animation
         heightRefcAnimator.setInterpolator(new AccelerateDecelerateInterpolator());

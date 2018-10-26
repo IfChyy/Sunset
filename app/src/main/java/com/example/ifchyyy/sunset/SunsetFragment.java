@@ -207,7 +207,6 @@ public class SunsetFragment extends Fragment implements View.OnClickListener {
         waterReflectStart.start();
     }
 
-
     //start the animation of the reflection of the sun in the water reversed
     private void sunReversedAnimation() {
         //end position of reflection sun
